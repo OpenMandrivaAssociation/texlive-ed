@@ -1,3 +1,9 @@
+# revision 21084
+# category Package
+# catalog-ctan /macros/latex/contrib/ed
+# catalog-date 2011-01-15 13:01:09 +0100
+# catalog-license lppl
+# catalog-version v1.7
 Name:		texlive-ed
 Version:	v1.7
 Release:	1
@@ -47,6 +53,7 @@ mode these are suppressed.
 #- source
 %doc %{_texmfdistdir}/source/latex/ed/ed.dtx
 %doc %{_texmfdistdir}/source/latex/ed/ed.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -57,3 +64,5 @@ mode these are suppressed.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
