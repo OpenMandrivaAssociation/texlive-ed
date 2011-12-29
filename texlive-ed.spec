@@ -18,9 +18,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
 
 %description
 This package defines a couple of editorial notes that simplify
@@ -29,20 +26,12 @@ status information in the source. In draft mode, the
 annotations are shown for communication, and in publication
 mode these are suppressed.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -54,7 +43,6 @@ mode these are suppressed.
 #- source
 %doc %{_texmfdistdir}/source/latex/ed/ed.dtx
 %doc %{_texmfdistdir}/source/latex/ed/ed.ins
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -65,5 +53,3 @@ mode these are suppressed.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
