@@ -6,7 +6,7 @@
 # catalog-version v1.7
 Name:		texlive-ed
 Version:	v1.7
-Release:	1
+Release:	2
 Summary:	Editorial Notes for LaTeX documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/ed
