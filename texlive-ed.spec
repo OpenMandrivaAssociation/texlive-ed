@@ -1,16 +1,16 @@
-# revision 21084
+# revision 25231
 # category Package
 # catalog-ctan /macros/latex/contrib/ed
-# catalog-date 2011-01-15 13:01:09 +0100
-# catalog-license lppl
-# catalog-version v1.7
+# catalog-date 2012-01-29 16:01:54 +0100
+# catalog-license lppl1
+# catalog-version 1.8
 Name:		texlive-ed
-Version:	v1.7
-Release:	2
+Version:	1.8
+Release:	1
 Summary:	Editorial Notes for LaTeX documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/ed
-License:	LPPL
+License:	LPPL1
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ed.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ed.doc.tar.xz
 Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ed.source.tar.xz
@@ -37,6 +37,7 @@ mode these are suppressed.
 #-----------------------------------------------------------------------
 %files
 %{_texmfdistdir}/tex/latex/ed/ed.sty
+%doc %{_texmfdistdir}/doc/latex/ed/Makefile
 %doc %{_texmfdistdir}/doc/latex/ed/README
 %doc %{_texmfdistdir}/doc/latex/ed/ed.pdf
 %doc %{_texmfdistdir}/doc/latex/ed/ed.sty.ltxml
