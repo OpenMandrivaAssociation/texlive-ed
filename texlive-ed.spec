@@ -54,3 +54,21 @@ mode these are suppressed.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Tue Jan 31 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.8-1
++ Revision: 770140
+- Update to latest upstream package
+
+* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> v1.7-2
++ Revision: 751323
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> v1.7-1
++ Revision: 718305
+- texlive-ed
+- texlive-ed
+- texlive-ed
+- texlive-ed
+
