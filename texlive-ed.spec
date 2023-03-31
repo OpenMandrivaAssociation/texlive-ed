@@ -1,6 +1,6 @@
 Name:		texlive-ed
 Version:	25231
-Release:	1
+Release:	2
 Summary:	Editorial Notes for LaTeX documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/ed
