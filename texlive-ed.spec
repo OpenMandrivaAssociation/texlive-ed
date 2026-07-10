@@ -1,51 +1,26 @@
-Name:		texlive-ed
-Version:	25231
-Release:	2
+%global tl_name ed
+%global tl_revision 25231
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.8
+Release:	%{tl_revision}.1
 Summary:	Editorial Notes for LaTeX documents
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/ed
-License:	LPPL1
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ed.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ed.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ed.source.r%{version}.tar.xz
+License:	lppl1
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ed.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ed.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ed.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
 This package defines a couple of editorial notes that simplify
-collaboration on a LaTeX text. These allow authors to annotate
-status information in the source. In draft mode, the
-annotations are shown for communication, and in publication
-mode these are suppressed.
+collaboration on a LaTeX text. These allow authors to annotate status
+information in the source. In draft mode, the annotations are shown for
+communication, and in publication mode these are suppressed.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/ed/ed.sty
-%doc %{_texmfdistdir}/doc/latex/ed/Makefile
-%doc %{_texmfdistdir}/doc/latex/ed/README
-%doc %{_texmfdistdir}/doc/latex/ed/ed.pdf
-%doc %{_texmfdistdir}/doc/latex/ed/ed.sty.ltxml
-#- source
-%doc %{_texmfdistdir}/source/latex/ed/ed.dtx
-%doc %{_texmfdistdir}/source/latex/ed/ed.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
